@@ -1,0 +1,83 @@
+/***
+ nav
+ ***/
+
+nav {
+  position: fixed;
+  z-index: 1;
+}
+
+nav li {
+  display: inline-block;
+  margin: 10px;
+}
+
+/****
+ Step
+ ****/
+
+/* Fade */
+.step {
+  -webkit-transition: opacity 1.5s;
+  -moz-transition:    opacity 1.5s;
+  -ms-transition:     opacity 1.5s;
+  -o-transition:      opacity 1.5s;
+  transition:         opacity 1.5s;
+}
+
+/*******
+ Country
+ *******/
+
+.step.country h1 {
+  margin: 0
+}
+
+/* mouse over pointer */
+.step.country:hover {
+  cursor: pointer;
+}
+
+.step.country .pin {
+  text-align: center;
+}
+
+/* Remove pin when not hovering. */
+.step.country .pin {
+  position: relative;
+  opacity: 0;
+  top: -500px;
+  -webkit-transition: all 0.3s;
+  -moz-transition:    all 0.3s;
+  -ms-transition:     all 0.3s;
+  -o-transition:      all 0.3s;
+  transition:         all 0.3s;
+}
+
+/* Drop pin on hover and when active. */
+.step.country:hover .pin,
+.step.country.active .pin {
+  opacity: 1;
+  top: 0px;
+}
+
+.country .pin img {
+  width: 50px;
+  margin-left: 20px; /* Offset shadow. */
+}
+
+/*****
+ Image
+ *****/
+
+.step.image {
+  opacity: 0;
+}
+
+.step.image.active {
+  opacity: 1;
+}
+
+.step.image img {
+  width: 500px;
+}

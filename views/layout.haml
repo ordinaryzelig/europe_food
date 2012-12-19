@@ -1,0 +1,19 @@
+!!!5
+
+%html
+  %head
+    %link{rel: 'stylesheet', href: 'site.css'}
+
+  %body
+
+    %nav
+      %li#nav_map
+        %a{href: '#map'} Map
+      - countries.sort_by(&:name).each do |country|
+        %li
+          %a{href: "##{country.name}"}= country.name
+
+    = yield
+
+    %script{src: 'impress.js'}
+    %script impress().init()

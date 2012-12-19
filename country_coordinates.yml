@@ -1,0 +1,64 @@
+---
+Stockholm:
+  x: 360
+  y: -880
+Copenhagen:
+  x: 140
+  y: -540
+Cologne:
+  x: -120
+  y: -160
+Bruges:
+  x: -330
+  y: -180
+Paris:
+  x: -380
+  y: 0
+Barcelona:
+  x: -500
+  y: 650
+Stuttgart:
+  x: -10
+  y: 40
+Bologna:
+  x: 110
+  y: 400
+Venice:
+  x: 150
+  y: 320
+Florence:
+  x: 100
+  y: 480
+Rome:
+  x: 180
+  y: 620
+Athens:
+  x: 940
+  y: 870
+Budapest:
+  x: 530
+  y: 100
+Vienna:
+  x: 380
+  y: 70
+Prague:
+  x: 250
+  y: -70
+Munich:
+  x: 120
+  y: 80
+Zurich:
+  x: -60
+  y: 140
+Lucerne:
+  x: -50
+  y: 190
+Berne:
+  x: -160
+  y: 200
+Madrid:
+  x: -900
+  y: 660
+Aachen:
+  x: -180
+  y: -130

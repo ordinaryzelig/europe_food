@@ -1,0 +1,15 @@
+#impress{'data-transition-duration' => @transition_duration}
+
+  #map.step{'data-scale' => 2.5, 'data-y' => -180, 'data-x' => 50}
+    %img{src: 'images/map.png'}
+
+  - countries.each do |country|
+    .step.country{country.step_atts}
+      .pin
+        %img{src: 'images/pin.png'}
+      %h1= country.name
+
+    - country.images.each do |image|
+      .step.image{image.step_atts}
+        %img{src: image.src}
+        .name= image.name
