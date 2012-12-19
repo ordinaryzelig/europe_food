@@ -14,7 +14,8 @@ $ ->
       return
 
     isNotCurrentLocation = el.getLocation() != window.currentLocation
-    if window.currentLocation and isNotCurrentLocation
+    isFoodStep = el.parents('.step.food').length >= 1
+    if isFoodStep and window.currentLocation and isNotCurrentLocation
       event.stopImmediatePropagation()
 
   ##############
