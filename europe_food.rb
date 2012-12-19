@@ -14,6 +14,10 @@ class EuropeFood < Sinatra::Base
     step_config
   end
 
+  get '/main.js' do
+    coffee :main
+  end
+
   get '*' do
     haml :index
   end
