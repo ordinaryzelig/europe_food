@@ -6,7 +6,7 @@ require "sinatra/base"
 require_relative 'named_after_path'
 require_relative 'underscored_dom_id'
 require_relative 'country'
-require_relative 'image'
+require_relative 'food'
 
 class EuropeFood < Sinatra::Base
 

@@ -67,17 +67,34 @@ nav li {
 }
 
 /*****
- Image
+ Food
  *****/
 
-.step.image {
+.step.food {
   opacity: 0;
 }
 
-.step.image.active {
+.step.food.active {
   opacity: 1;
 }
 
-.step.image img {
+.step.food img {
   width: 500px;
+}
+
+/*******
+ The End
+ *******/
+
+#the_end {
+  opacity: 0;
+  font-size: 100pt;
+  background-image: url('images/spoon.jpg');
+  background-repeat: no-repeat;
+  background-position: 100% 51%;
+  background-size: 70%;
+}
+
+#the_end.active {
+  opacity: 1;
 }

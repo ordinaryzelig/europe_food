@@ -1,4 +1,4 @@
-class Image
+class Food
 
   SIZE               = 500
   PADDING            = 50
@@ -36,7 +36,7 @@ class Image
   end
 
   def idx
-    @country.idx_for_image(self)
+    @country.idx_for_food(self)
   end
 
   def step_atts

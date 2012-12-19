@@ -6,7 +6,7 @@ class Country
   include UnderscoredDomId
 
   attr_reader :name
-  attr_reader :images
+  attr_reader :foods
 
   class << self
 
@@ -24,12 +24,12 @@ class Country
 
   def initialize(path)
     super
-    create_images(path)
+    create_foods(path)
   end
 
-  def create_images(path)
-    @images = Dir[path + '/*'].map do |image_path|
-      Image.new(image_path, self)
+  def create_foods(path)
+    @foods = Dir[path + '/*'].map do |image_path|
+      Food.new(image_path, self)
     end
   end
 
@@ -41,8 +41,8 @@ class Country
     self.class.coordinates[name]['y']
   end
 
-  def idx_for_image(image)
-    @images.index(image)
+  def idx_for_food(food)
+    @foods.index(food)
   end
 
   def step_atts

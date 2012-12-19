@@ -9,7 +9,13 @@
         %img{src: 'images/pin.png'}
       %h1= country.name
 
-    - country.images.each do |image|
-      .step.image{image.step_atts}
-        %img{src: image.src}
-        .name= image.name
+    - country.foods.each do |food|
+      .step.food{food.step_atts}
+        %img{src: food.src}
+        .name= food.name
+
+    -# End of country.
+    .step.country{country.step_atts.merge('id' => "end_#{country.name}")}
+
+  #the_end.step{'data-scale' => 30}
+    %h1 The End
