@@ -47,9 +47,10 @@ class Country
 
   def step_atts
     {
-      'id'     => name,
-      'data-x' => data_x,
-      'data-y' => data_y,
+      'id'           => name,
+      'data-x'       => data_x,
+      'data-y'       => data_y,
+      'data-country' => dom_id,
     }
   end
 

@@ -2,9 +2,8 @@ impress.js presentation of food from my trip.
 
 # TODO
 
-* Disable map step click
-* Disable other city clicks
+* Disable map step click (add event listener before load impress?)
+* Disable other city clicks (not worth it)
 * convert to static site
-* Background image of country for foods?
 * Drop pin on hover city nav link?
 * Timer for entering country?

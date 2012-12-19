@@ -22,6 +22,7 @@
         %li
           %a{href: "##{country.name}"}= country.name
 
-    = yield
+    #outerImpress
+      = yield
 
     %script{src: 'impress.js'}
