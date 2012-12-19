@@ -5,7 +5,7 @@ require "sinatra/base"
 
 require_relative 'named_after_path'
 require_relative 'underscored_dom_id'
-require_relative 'country'
+require_relative 'location'
 require_relative 'food'
 
 class EuropeFood < Sinatra::Base
@@ -28,8 +28,8 @@ class EuropeFood < Sinatra::Base
       @transition_duration = 1_500
     end
 
-    def countries
-      @countries ||= Country.all
+    def locations
+      @locations ||= Location.all
     end
 
   end

@@ -18,9 +18,9 @@
       %li#nav_map
         %a{href: '#map'} Map
       %hr
-      - countries.sort_by(&:name).each do |country|
+      - locations.sort_by(&:name).each do |location|
         %li
-          %a{href: "##{country.name}"}= country.name
+          %a{href: "##{location.name}"}= location.name
 
     #outerImpress
       = yield

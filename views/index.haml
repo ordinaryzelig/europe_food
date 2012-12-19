@@ -3,19 +3,19 @@
   #map.step{'data-scale' => 2.5, 'data-y' => -180, 'data-x' => 50}
     %img{src: 'images/map.png'}
 
-  - countries.each do |country|
-    .step.country{country.step_atts}
+  - locations.each do |location|
+    .step.location{location.step_atts}
       .pin
         %img{src: 'images/pin.png'}
-      %h1.name= country.name
+      %h1.name= location.name
 
-    - country.foods.each do |food|
+    - location.foods.each do |food|
       .step.food{food.step_atts}
         %img{src: food.src}
         .name= food.name
 
-    -# End of country.
-    .step.end_country{country.step_atts.merge('id' => "end_#{country.name}")}
+    -# End of location.
+    .step.end_location{location.step_atts.merge('id' => "end_#{location.name}")}
 
   #the_end.step{'data-z' => 30_000}
     %h1

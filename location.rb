@@ -1,4 +1,4 @@
-class Country
+class Location
 
   IMAGES_PATH = './public/images/grouped/medium/medium'
 
@@ -12,12 +12,12 @@ class Country
 
     def all
       coordinates.keys.map do |name|
-        Country.new("#{IMAGES_PATH}/#{name}")
+        Location.new("#{IMAGES_PATH}/#{name}")
       end
     end
 
     def coordinates
-      @coordinates ||= YAML.load(File.read('country_coordinates.yml'))
+      @coordinates ||= YAML.load(File.read('location_coordinates.yml'))
     end
 
   end
@@ -50,7 +50,7 @@ class Country
       'id'           => name,
       'data-x'       => data_x,
       'data-y'       => data_y,
-      'data-country' => dom_id,
+      'data-location' => dom_id,
     }
   end
 

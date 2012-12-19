@@ -10,9 +10,9 @@ class Food
 
   attr_reader :path
 
-  def initialize(path, country)
+  def initialize(path, location)
     super(path)
-    @country = country
+    @location = location
   end
 
   def src
@@ -24,11 +24,11 @@ class Food
   end
 
   def data_x
-    @country.data_x + (idx * HORIZONTAL_SPACING)
+    @location.data_x + (idx * HORIZONTAL_SPACING)
   end
 
   def data_y
-    @country.data_y
+    @location.data_y
   end
 
   def data_z
@@ -36,7 +36,7 @@ class Food
   end
 
   def idx
-    @country.idx_for_food(self)
+    @location.idx_for_food(self)
   end
 
   def step_atts
@@ -45,7 +45,7 @@ class Food
       'data-x'       => data_x,
       'data-y'       => data_y,
       'data-z'       => data_z,
-      'data-country' => @country.dom_id,
+      'data-location' => @location.dom_id,
     }
   end
 

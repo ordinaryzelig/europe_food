@@ -8,40 +8,40 @@ $ ->
 
     isMapStep = el.attr('id') == 'map'
     isChildOfMapStep = el.parents('#map').length >= 1
-    isNotCurrentCountry = el.country != window.currentCountry
-    if isMapStep or isChildOfMapStep or isNotCurrentCountry
+    isNotCurrentLocation = el.location != window.currentLocation
+    if isMapStep or isChildOfMapStep or isNotCurrentLocation
       event.stopImmediatePropagation()
 
   impress().init()
 
   root.addEventListener 'impress:stepenter', (event) ->
     step = $(event.target)
-    countryName = step.data('country')
+    locationName = step.data('location')
 
-    # Set currentCountry.
-    window.currentCountry = countryName
+    # Set currentLocation.
+    window.currentLocation = locationName
 
     # A smoother transition from Aachen_end to the_end.
     if step.attr('id') == 'end_Aachen'
-      setCountryBackgroundImage('none')
+      setLocationBackgroundImage('none')
       return
 
-    # Set background image to image for current country.
-    if countryName
-      backgroundImageProperty = "url('images/country_backgrounds/#{countryName}.jpg')"
-      setCountryBackgroundImage(backgroundImageProperty)
+    # Set background image to image for current location.
+    if locationName
+      backgroundImageProperty = "url('images/location_backgrounds/#{locationName}.jpg')"
+      setLocationBackgroundImage(backgroundImageProperty)
     else
-      setCountryBackgroundImage('none')
+      setLocationBackgroundImage('none')
 
-  setCountryBackgroundImage = (value) ->
+  setLocationBackgroundImage = (value) ->
     body = $('#outerImpress')
     unless body.css('background-image') == value
       body.css 'background-image', value
 
-$.fn.country = ->
-  ownCountry = $(this).data('country')
+$.fn.location = ->
+  ownLocation = $(this).data('location')
 
-  if ownCountry
-    return ownCountry
+  if ownLocation
+    return ownLocation
   else
-    $(this).parents('.step').data('country')
+    $(this).parents('.step').data('location')
