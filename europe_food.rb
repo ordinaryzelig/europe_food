@@ -26,6 +26,7 @@ class EuropeFood < Sinatra::Base
 
     def step_config
       @transition_duration = 1_500
+      @map_scale = 2.5
     end
 
     def locations

@@ -1,4 +1,4 @@
-#map.step{'data-scale' => 2.5, 'data-y' => -180, 'data-x' => 50}
+#map.step{'data-scale' => @map_scale, 'data-y' => -180, 'data-x' => 50}
   %img{src: 'images/map.png'}
 
 - locations.each do |location|
@@ -15,7 +15,7 @@
   -# End of location.
   .step.end_location{location.step_atts.merge('id' => "end_#{location.name}")}
 
-#the_end.step{'data-z' => 40_000}
+#the_end.step{'data-scale' => @map_scale, 'data-z' => 30_000}
   %h1
     The
     %br
