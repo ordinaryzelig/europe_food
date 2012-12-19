@@ -2,11 +2,13 @@ body {
   font-family: 'PT Sans', Helvetica, sans-serif;
 }
 
+/* Background image for each country */
 #outerImpress {
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 100%;
 }
 
 /***
@@ -111,6 +113,8 @@ nav hr {
 
 .step.food {
   opacity: 0;
+  border: 10px solid white;
+  background-color: white;
 }
 
 .step.food.active {
