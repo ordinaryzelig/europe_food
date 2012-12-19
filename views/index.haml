@@ -1,22 +1,20 @@
-#impress{'data-transition-duration' => @transition_duration}
+#map.step{'data-scale' => 2.5, 'data-y' => -180, 'data-x' => 50}
+  %img{src: 'images/map.png'}
 
-  #map.step{'data-scale' => 2.5, 'data-y' => -180, 'data-x' => 50}
-    %img{src: 'images/map.png'}
+- locations.each do |location|
+  .step.location{location.step_atts}
+    .pin
+      %img{src: 'images/pin.png'}
+    %h1.name= location.name
 
-  - locations.each do |location|
-    .step.location{location.step_atts}
-      .pin
-        %img{src: 'images/pin.png'}
-      %h1.name= location.name
+  - location.foods.each do |food|
+    .step.food{food.step_atts}
+      %img{src: food.src}
+      .name= food.name
 
-    - location.foods.each do |food|
-      .step.food{food.step_atts}
-        %img{src: food.src}
-        .name= food.name
+  -# End of location.
+  .step.end_location{location.step_atts.merge('id' => "end_#{location.name}")}
 
-    -# End of location.
-    .step.end_location{location.step_atts.merge('id' => "end_#{location.name}")}
-
-  #the_end.step{'data-z' => 30_000}
-    %h1
-      %a{href: '#map'} The End
+#the_end.step{'data-z' => 30_000}
+  %h1
+    %a{href: '#map'} The End

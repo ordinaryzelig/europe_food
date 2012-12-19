@@ -2,10 +2,13 @@ impress.js presentation of food from my trip.
 
 # TODO
 
+* Fix bug with preventing click (too strict)
 * convert to static site
-* Drop pin on hover city nav link?
-* Timer for entering country?
-# Rename Country to Location
+* Timer for entering location?
+* Check URLs for ugly file names
+* More usable sidebar
+* Instructions
+* "Click globe to watch again"
 
 # Bad pics
 

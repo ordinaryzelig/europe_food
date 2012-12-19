@@ -2,6 +2,8 @@
 
 %html
   %head
+    %title Europe Food
+
     - if ENV['RACK_ENV'] == 'development'
       %script{src: 'jquery-1.8.3.min.js'}
     - else
@@ -15,14 +17,25 @@
   %body
 
     %nav
-      %li#nav_map
-        %a{href: '#map'} Map
-      %hr
-      - locations.sort_by(&:name).each do |location|
-        %li
-          %a{href: "##{location.name}"}= location.name
+
+      %ul
+        %li#nav_map
+          %a{href: '#map'} Map
+        %hr
+        - locations.sort_by(&:name).each do |location|
+          %li
+            %a{href: "##{location.name}"}= location.name
+        %li#showInstructions ?
 
     #outerImpress
-      = yield
+      #impress{'data-transition-duration' => @transition_duration}
+        = yield
+
+    #instructions
+      Press the space bar to follow my entire trip.
+      %br
+      Or just click on a city.
+      %br
+      You can also use the arrow keys on your keyboard.
 
     %script{src: 'impress.js'}
