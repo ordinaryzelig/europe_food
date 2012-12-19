@@ -52,7 +52,7 @@ $ ->
   root.addEventListener 'impress:stepenter', (event) ->
     step = $(event.target)
     if step.attr('id') == 'map' and !window.instructionsShown
-      showInstructions()
+      toggleInstructions()
 
   # A smoother transition from end_Aachen to the_end.
   root.addEventListener 'impress:stepenter', (even) ->
@@ -70,15 +70,15 @@ $ ->
 
   # Show instructions when clicked.
   $('#showInstructions').click (event) ->
-    showInstructions()
+    toggleInstructions()
 
   # Remove instructions when clicked.
   $('#instructions').click (event) ->
     hideInstructions()
 
-  showInstructions = ->
+  toggleInstructions = ->
     window.instructionsShown = true
-    $('#instructions').fadeIn()
+    $('#instructions').fadeToggle()
 
   hideInstructions = ->
     $('#instructions').fadeOut()
