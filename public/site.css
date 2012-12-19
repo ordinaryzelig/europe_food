@@ -129,22 +129,27 @@ nav hr {
 
 #the_end {
   opacity: 0;
-  font-size: 100pt;
-
-  /* Fine tune background image. */
-  background-image: url('images/spoon.jpg');
-  background-repeat: no-repeat;
-  background-position: 100% 51%;
-  background-size: 70%;
-}
-
-#the_end a {
-  color: inherit;
-  text-decoration: inherit;
+  text-align: center;
 }
 
 #the_end.active {
   opacity: 1;
+}
+
+#the_end h1 {
+  font-size: 100pt;
+  line-height: 250pt;
+  margin: 0;
+}
+
+#startOver {
+  position: absolute;
+  top: 37%;
+  width: 200px;
+}
+
+#startOverHint {
+  font-size: 13pt;
 }
 
 body {
@@ -159,6 +164,10 @@ body {
   background-position: center;
   background-size: 100%;
 }
+
+/************
+ Instructions
+ ************/
 
 #instructions {
   display: none; /* jQuery will show it. */

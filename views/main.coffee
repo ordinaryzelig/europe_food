@@ -25,7 +25,8 @@ $ ->
   root.addEventListener 'impress:init', (event) ->
     window.instructionsShown = false
 
-  impress().init()
+  api = impress()
+  api.init()
 
   ###################
   # impress:stepenter
