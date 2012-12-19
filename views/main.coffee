@@ -14,6 +14,8 @@ $ ->
       return
 
     isNotCurrentLocation = el.getLocation() != window.currentLocation
+    if window.currentLocation and isNotCurrentLocation
+      event.stopImmediatePropagation()
 
   ##############
   # impress:init
