@@ -2,6 +2,11 @@
 
 %html
   %head
+    - if ENV['RACK_ENV'] == 'development'
+      %script{src: 'jquery-1.8.3.min.js'}
+    - else
+      %script{src: 'ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'}
+
     %link{rel: 'stylesheet', href: 'site.css'}
     %link{href: 'http://fonts.googleapis.com/css?family=PT+Sans', rel: 'stylesheet', type: 'text/css'}
 
