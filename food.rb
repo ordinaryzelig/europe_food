@@ -9,6 +9,7 @@ class Food
   include UnderscoredDomId
 
   attr_reader :path
+  attr_reader :name
 
   def initialize(path, location)
     super(path)
@@ -21,10 +22,6 @@ class Food
 
   def dom_id
     "#{@location.name}-#{super}"
-  end
-
-  def name
-    @name.sub('.jpg', '')
   end
 
   def data_x
