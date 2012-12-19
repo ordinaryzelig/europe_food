@@ -82,6 +82,11 @@ nav li {
   width: 500px;
 }
 
+.food .name {
+  font-size: 16pt;
+  text-align: center;
+}
+
 /*******
  The End
  *******/
@@ -89,10 +94,17 @@ nav li {
 #the_end {
   opacity: 0;
   font-size: 100pt;
+
+  /* Fine tune background image. */
   background-image: url('images/spoon.jpg');
   background-repeat: no-repeat;
   background-position: 100% 51%;
   background-size: 70%;
+}
+
+#the_end a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 #the_end.active {

@@ -15,7 +15,8 @@
         .name= food.name
 
     -# End of country.
-    .step.country{country.step_atts.merge('id' => "end_#{country.name}")}
+    .step.end_country{country.step_atts.merge('id' => "end_#{country.name}")}
 
-  #the_end.step{'data-scale' => 30}
-    %h1 The End
+  #the_end.step{'data-z' => 30_000}
+    %h1
+      %a{href: '#map'} The End
