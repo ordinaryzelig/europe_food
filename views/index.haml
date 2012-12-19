@@ -7,7 +7,7 @@
     .step.country{country.step_atts}
       .pin
         %img{src: 'images/pin.png'}
-      %h1= country.name
+      %h1.name= country.name
 
     - country.foods.each do |food|
       .step.food{food.step_atts}

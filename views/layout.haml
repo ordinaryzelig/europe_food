@@ -3,12 +3,14 @@
 %html
   %head
     %link{rel: 'stylesheet', href: 'site.css'}
+    %link{href: 'http://fonts.googleapis.com/css?family=PT+Sans', rel: 'stylesheet', type: 'text/css'}
 
   %body
 
     %nav
       %li#nav_map
         %a{href: '#map'} Map
+      %hr
       - countries.sort_by(&:name).each do |country|
         %li
           %a{href: "##{country.name}"}= country.name
