@@ -5,23 +5,28 @@ $ ->
   # Prevent clicking of map from triggering that step.
   root.addEventListener 'click', (event) ->
     el = $(event.target)
+
     isMapStep = el.attr('id') == 'map'
     isChildOfMapStep = el.parents('#map').length >= 1
-    if isMapStep or isChildOfMapStep
+    isNotCurrentCountry = el.country != window.currentCountry
+    if isMapStep or isChildOfMapStep or isNotCurrentCountry
       event.stopImmediatePropagation()
 
   impress().init()
 
-  # Set background image to image for current country.
   root.addEventListener 'impress:stepenter', (event) ->
     step = $(event.target)
+    countryName = step.data('country')
+
+    # Set currentCountry.
+    window.currentCountry = countryName
 
     # A smoother transition from Aachen_end to the_end.
     if step.attr('id') == 'end_Aachen'
       setCountryBackgroundImage('none')
       return
 
-    countryName = step.data('country')
+    # Set background image to image for current country.
     if countryName
       backgroundImageProperty = "url('images/country_backgrounds/#{countryName}.jpg')"
       setCountryBackgroundImage(backgroundImageProperty)
@@ -32,3 +37,11 @@ $ ->
     body = $('#outerImpress')
     unless body.css('background-image') == value
       body.css 'background-image', value
+
+$.fn.country = ->
+  ownCountry = $(this).data('country')
+
+  if ownCountry
+    return ownCountry
+  else
+    $(this).parents('.step').data('country')
