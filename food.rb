@@ -19,6 +19,10 @@ class Food
     path.sub(%r{^\./public/}, '')
   end
 
+  def dom_id
+    "#{@location.name}-#{super}"
+  end
+
   def name
     @name.sub('.jpg', '')
   end
