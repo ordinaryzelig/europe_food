@@ -61,15 +61,6 @@ $ ->
     if step.attr('id') == 'end_Aachen'
       setLocationBackgroundImage('none')
 
-  # Load images when location entered.
-  root.addEventListener 'impress:stepenter', (event) ->
-    step = $(event.target)
-    return if step.stepType() == 'step'
-    step.loadFoodImages()
-
-  # Load images by location.
-  $('.step.location').loadFoodImages()
-
   ########################
   # Hide/Show instructions
   ########################
@@ -139,26 +130,3 @@ $.fn.getLocation = ->
     return ownLocation
   else
     $(this).parents('.step').data('location')
-
-# Step type.
-# Can be location, food, or step.
-$.fn.stepType = ->
-  step = $(@[0])
-  return 'location' if step.hasClass('location')
-  return 'food'     if step.hasClass('food')
-  'step'
-
-# For a given step, find its images and load them.
-$.fn.loadFoodImages = ->
-  @each ->
-    location = $(this).data('location')
-    console.log "loading: #{location}"
-    foodSteps = $(".step.food.location-#{location}")
-    foodSteps.find('img').loadImage()
-
-# Swap src with data-src.
-$.fn.loadImage = ->
-  @each ->
-    image = $(this)
-    originalSource = image.data('src')
-    image.attr('src', originalSource)
