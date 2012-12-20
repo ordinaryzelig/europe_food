@@ -9,7 +9,7 @@
 
   - location.foods.each do |food|
     .step.food{food.step_atts}
-      %img{src: food.src}
+      %img{src: 'images/lazy.png', 'data-src' => food.src}
       .name= food.name
 
   -# End of location.

@@ -46,11 +46,12 @@ class Food
 
   def step_atts
     {
-      'id'           => dom_id,
-      'data-x'       => data_x,
-      'data-y'       => data_y,
-      'data-z'       => data_z,
+      'id'            => dom_id,
+      'data-x'        => data_x,
+      'data-y'        => data_y,
+      'data-z'        => data_z,
       'data-location' => @location.dom_id,
+      'class'         => ["location-#{@location.dom_id}"],
     }
   end
 
