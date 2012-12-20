@@ -4,4 +4,10 @@ impress.js presentation of food from my trip.
 
 * convert to static site
 * Current location when viewing foods
-* Anja pics
+
+# bad chars in file name
+
+* donner
+* pide donnerli
+* crepes
+* Späzle, goulash
