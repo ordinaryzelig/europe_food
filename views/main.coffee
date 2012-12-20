@@ -92,7 +92,8 @@ $ ->
     'Aachen-Maronencremesuppe',
     'Aachen-Schokoecken',
     'Aachen-Bratapfel',
-    'Aachen-Apple__berry_pie'
+    'Aachen-Apple__berry_pie',
+    'Aachen-Potato_soup'
   ]
   $.each anjaFoods, (idx, foodName) ->
     food = $("##{foodName}")
