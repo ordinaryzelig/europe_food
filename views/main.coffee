@@ -42,7 +42,7 @@ $ ->
     window.currentLocation = locationName
 
     if locationName
-      backgroundImageProperty = "url('images/location_backgrounds/#{locationName}.jpg')"
+      backgroundImageProperty = "url('https://s3.amazonaws.com/europe-food/location_backrgrounds/medium/low/#{locationName}.jpg')"
       setLocationBackgroundImage(backgroundImageProperty)
       addCurrentLocationNavClasses(locationName)
     else
