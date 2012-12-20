@@ -195,3 +195,13 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
+.anjaNote {
+  text-align: center;
+  color: gray;
+  margin-top: 5px;
+}
+
+a:visited {
+  color: blue;
+}

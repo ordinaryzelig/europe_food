@@ -4,3 +4,4 @@ impress.js presentation of food from my trip.
 
 * convert to static site
 * Current location when viewing foods
+* Anja pics

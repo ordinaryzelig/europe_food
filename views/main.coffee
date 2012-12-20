@@ -83,6 +83,24 @@ $ ->
   hideInstructions = ->
     $('#instructions').fadeOut()
 
+  ###########
+  # Anja pics
+  ###########
+
+  anjaFoods = [
+    'Aachen-Maronencremesuppe',
+    'Aachen-Schokoecken',
+    'Aachen-Bratapfel',
+    'Aachen-Apple__berry_pie'
+  ]
+  $.each anjaFoods, (idx, foodName) ->
+    food = $("##{foodName}")
+    note = '<div class="anjaNote">' +
+           '* Wonderfully prepared by ' +
+           '<a href="http://foodstories.de" target="blank">Anja</a>' +
+           '</div>'
+    food.find('.name').after note
+
   #########
   # Helpers
   #########
