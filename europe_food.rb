@@ -1,9 +1,9 @@
 require 'bundler/setup'
-Bundler.require ENV['RACK_ENV']
+Bundler.require :default, ENV.fetch('RACK_ENV', 'development')
 
 require "sinatra/base"
 
-require_relative 'named_after_path'
+require_relative 's3'
 require_relative 'underscored_dom_id'
 require_relative 'location'
 require_relative 'food'
@@ -30,7 +30,7 @@ class EuropeFood < Sinatra::Base
     end
 
     def locations
-      @locations ||= Location.all
+      @locations ||= Location.all.each(&:create_foods)
     end
 
   end

@@ -1,8 +1,7 @@
 class Location
 
-  IMAGES_PATH = './public/images/grouped/medium/medium'
+  S3_DIR  = 'locations/medium/medium'
 
-  include NamedAfterPath
   include UnderscoredDomId
 
   attr_reader :name
@@ -12,7 +11,7 @@ class Location
 
     def all
       coordinates.keys.map do |name|
-        Location.new("#{IMAGES_PATH}/#{name}")
+        Location.new(name)
       end
     end
 
@@ -22,14 +21,14 @@ class Location
 
   end
 
-  def initialize(path)
-    super
-    create_foods(path)
+  def initialize(name)
+    @name = name
   end
 
-  def create_foods(path)
-    @foods = Dir[path + '/*'].map do |image_path|
-      Food.new(image_path, self)
+  def create_foods
+    @foods = bucket_objects.map do |s3_obj|
+      path = "#{S3.path_prefix}/#{s3_obj.key}"
+      Food.new(path, self)
     end
   end
 
@@ -52,6 +51,13 @@ class Location
       'data-y'       => data_y,
       'data-location' => dom_id,
     }
+  end
+
+  def bucket_objects
+    S3.bucket.objects.select do |s3_obj|
+      key_prefix = "#{S3_DIR}/#{name}/"
+      s3_obj.key =~ Regexp.new("#{key_prefix}.+")
+    end
   end
 
 end

@@ -5,15 +5,19 @@ class Food
   HORIZONTAL_SPACING = SIZE + PADDING
   DATA_Z             = -2_000
 
-  include NamedAfterPath
   include UnderscoredDomId
 
   attr_reader :path
   attr_reader :name
 
   def initialize(path, location)
-    super(path)
     @location = location
+    @path = path
+    @name =
+      path
+        .split('/')
+        .last
+        .sub('.jpg', '')
   end
 
   def src
