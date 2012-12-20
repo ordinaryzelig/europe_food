@@ -67,6 +67,9 @@ $ ->
     return if step.stepType() == 'step'
     step.loadFoodImages()
 
+  # Load images by location.
+  $('.step.location').loadFoodImages()
+
   ########################
   # Hide/Show instructions
   ########################
@@ -147,9 +150,11 @@ $.fn.stepType = ->
 
 # For a given step, find its images and load them.
 $.fn.loadFoodImages = ->
-  location = $(@[0]).data('location')
-  foodSteps = $(".step.food.location-#{location}")
-  foodSteps.find('img').loadImage()
+  @each ->
+    location = $(this).data('location')
+    console.log "loading: #{location}"
+    foodSteps = $(".step.food.location-#{location}")
+    foodSteps.find('img').loadImage()
 
 # Swap src with data-src.
 $.fn.loadImage = ->
