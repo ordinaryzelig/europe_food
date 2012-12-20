@@ -34,19 +34,20 @@ $ ->
   ###################
 
   # Set background image to image for current location.
+  # Add/Remove class to sidebar link for current location.
   root.addEventListener 'impress:stepenter', (event) ->
     step = $(event.target)
     locationName = step.data('location')
 
-    # Set currentLocation.
     window.currentLocation = locationName
 
-    # Set background image.
     if locationName
       backgroundImageProperty = "url('images/location_backgrounds/#{locationName}.jpg')"
       setLocationBackgroundImage(backgroundImageProperty)
+      addCurrentLocationNavClasses(locationName)
     else
       setLocationBackgroundImage('none')
+      removeCurrentLocationNavClasses()
 
   # Show instructions if we're on the map step for the first time.
   root.addEventListener 'impress:stepenter', (event) ->
@@ -109,6 +110,13 @@ $ ->
     body = $('#outerImpress')
     unless body.css('background-image') == value
       body.css 'background-image', value
+
+  addCurrentLocationNavClasses = (locationName) ->
+    removeCurrentLocationNavClasses()
+    $("#location_#{locationName}").addClass('current')
+
+  removeCurrentLocationNavClasses = ->
+    $("nav .location").removeClass('current')
 
 ###############
 # jQery Helpers

@@ -23,7 +23,7 @@
           %a{href: '#map'} Map
         %hr
         - locations.sort_by(&:name).each do |location|
-          %li
+          %li.location{id: "location_#{location.name}"}
             %a{href: "##{location.name}"}= location.name
         %li#showInstructions ?
 
