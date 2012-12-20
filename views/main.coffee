@@ -127,9 +127,9 @@ $ ->
   # Preload location background images.
   $('.step.location').each ->
     locationName = $(this).data('location')
-    setLocationBackgroundImage(locationBackgroundImageProperty(locationName))
-  # Reset.
-  setLocationBackgroundImage('none')
+    src = locationBackgroundImagePath(locationName)
+    img = new Image()
+    img.src = src
 
 ###############
 # jQery Helpers
