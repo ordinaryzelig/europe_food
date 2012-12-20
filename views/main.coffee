@@ -42,8 +42,7 @@ $ ->
     window.currentLocation = locationName
 
     if locationName
-      backgroundImageProperty = "url('https://s3.amazonaws.com/europe-food/location_backrgrounds/medium/low/#{locationName}.jpg')"
-      setLocationBackgroundImage(backgroundImageProperty)
+      setLocationBackgroundImage(locationBackgroundImageProperty(locationName))
       addCurrentLocationNavClasses(locationName)
     else
       setLocationBackgroundImage('none')
@@ -118,6 +117,19 @@ $ ->
 
   removeCurrentLocationNavClasses = ->
     $("nav .location").removeClass('current')
+
+  locationBackgroundImagePath = (locationName) ->
+    "https://s3.amazonaws.com/europe-food/location_backrgrounds/medium/low/#{locationName}.jpg"
+
+  locationBackgroundImageProperty = (locationName) ->
+    "url(#{locationBackgroundImagePath(locationName)})"
+
+  # Preload location background images.
+  $('.step.location').each ->
+    locationName = $(this).data('location')
+    setLocationBackgroundImage(locationBackgroundImageProperty(locationName))
+  # Reset.
+  setLocationBackgroundImage('none')
 
 ###############
 # jQery Helpers
