@@ -205,3 +205,8 @@ body {
 a:visited {
   color: blue;
 }
+
+/* Safari remembers visited anchor links. */
+nav a:visited {
+  color: inherit;
+}
