@@ -10,6 +10,8 @@ require_relative 'food'
 
 class EuropeFood < Sinatra::Base
 
+  set :public_folder, '.'
+
   before do
     step_config
   end
