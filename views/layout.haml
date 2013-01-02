@@ -16,9 +16,13 @@
     %link{rel: 'stylesheet', href: 'site.css'}
     %link{href: 'http://fonts.googleapis.com/css?family=PT+Sans', rel: 'stylesheet', type: 'text/css'}
 
-  %body
+  %body.impress-not-supported
 
-    %nav
+    #not_supported_message
+      It looks like my page doesn't work on your browser.
+      Try using Google Chrome, Firefox, or Safari on a desktop.
+
+    %nav.supported_content
 
       %ul
         %li#nav_map
@@ -29,12 +33,12 @@
             %a{href: "##{location.name}"}= location.name
         %li#showInstructions ?
 
-    #outerImpress
+    #outerImpress.supported_content
       #impress{'data-transition-duration' => @transition_duration}
         = yield
 
-    #instructions
-      Press the space bar to follow my entire trip.
+    #instructions.supported_content
+      Use the space bar to step through my entire trip.
       %br
       You can also use the arrow keys on your keyboard.
 

@@ -214,3 +214,17 @@ a:visited {
 nav a:visited {
   color: inherit;
 }
+
+/*
+ * Impress supproted/unsupported.
+ */
+
+/* Hide unsupported browser message if impress is supported */
+.impress-supported #not_supported_message {
+  display: none;
+}
+
+/* Hide supported content and show message if impress is not supported */
+.impress-not-supported .supported_content {
+  display: none;
+}
