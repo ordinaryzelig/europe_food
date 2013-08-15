@@ -1,6 +1,8 @@
 require 'bundler/setup'
 Bundler.require :default, ENV.fetch('RACK_ENV', 'development')
 
+require 'yaml'
+
 require "sinatra/base"
 
 require_relative 's3'
