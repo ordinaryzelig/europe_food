@@ -4,7 +4,6 @@ Bundler.require :default, ENV.fetch('RACK_ENV', 'development')
 require 'yaml'
 
 require_relative 'lib/s3'
-require_relative 'lib/underscored_dom_id'
 require_relative 'lib/coordinates'
 require_relative 'lib/location'
 require_relative 'lib/food'
@@ -46,7 +45,7 @@ class EuropeFood < Sinatra::Base
         'id'            => location.name,
         'data-x'        => Coordinates.x(location.name),
         'data-y'        => Coordinates.y(location.name),
-        'data-location' => location.dom_id,
+        'data-location' => dom_id(location),
       }
     end
 
@@ -54,13 +53,21 @@ class EuropeFood < Sinatra::Base
       loc_data_x = Coordinates.x(food.location.name)
       loc_data_y = Coordinates.y(food.location.name)
       {
-        'id'            => food.dom_id,
+        'id'            => dom_id(food),
         'data-x'        => loc_data_x + (idx * HORIZONTAL_SPACING),
         'data-y'        => loc_data_y,
         'data-z'        => DATA_Z,
-        'data-location' => food.location.dom_id,
-        'class'         => ["location-#{food.location.dom_id}"],
+        'data-location' => dom_id(food.location),
+        'class'         => ["location-#{dom_id(food.location)}"],
       }
+    end
+
+    def dom_id(obj)
+      prefix = ''
+      if obj.is_a?(Food)
+        prefix.replace("#{dom_id(obj.location)}-")
+      end
+      prefix + obj.name.gsub(/\W/, '_')
     end
 
   end

@@ -2,8 +2,6 @@ class Location
 
   S3_DIR  = 'locations/medium/medium'
 
-  include UnderscoredDomId
-
   attr_reader :name
   attr_reader :foods
 

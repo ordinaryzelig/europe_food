@@ -1,7 +1,5 @@
 class Food
 
-  include UnderscoredDomId
-
   attr_reader :path
   attr_reader :name
   attr_reader :location
@@ -18,10 +16,6 @@ class Food
 
   def src
     path.sub(%r{^\./public/}, '')
-  end
-
-  def dom_id
-    "#{@location.name}-#{super}"
   end
 
 end
