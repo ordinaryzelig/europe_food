@@ -5,10 +5,10 @@ require 'yaml'
 
 require "sinatra/base"
 
-require_relative 's3'
-require_relative 'underscored_dom_id'
-require_relative 'location'
-require_relative 'food'
+require_relative 'lib/s3'
+require_relative 'lib/underscored_dom_id'
+require_relative 'lib/location'
+require_relative 'lib/food'
 
 class EuropeFood < Sinatra::Base
 

@@ -9,9 +9,9 @@ task :compile do
 
   # index.html
   response = get('/')
-  File.open('index.html', 'r+') { |f| f.write response.body }
+  File.open('index.html', 'w+') { |f| f.write response.body }
 
   # main.js
   response = get('/main.js')
-  File.open('main.js', 'r+') { |f| f.write response.body }
+  File.open('main.js', 'w+') { |f| f.write response.body }
 end
