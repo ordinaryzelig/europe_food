@@ -1,10 +1,10 @@
 #map.step{'data-scale' => @map_scale, 'data-y' => -180, 'data-x' => 50}
-  %img{src: 'images/map.png'}
+  %img{src: 'public/images/map.png'}
 
 - locations.each do |location|
   .step.location{location.step_atts}
     .pin
-      %img{src: 'images/pin.png'}
+      %img{src: 'public/images/pin.png'}
     %h1.name= location.name
 
   - location.foods.each do |food|
@@ -21,5 +21,5 @@
     %br
     End
   %a#startOver{href: '#map'}
-    %img{src: 'images/spoon.jpg'}
+    %img{src: 'public/images/spoon.jpg'}
   #startOverHint Click the globe to start over.
