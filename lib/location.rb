@@ -10,13 +10,9 @@ class Location
   class << self
 
     def all
-      coordinates.keys.map do |name|
+      Coordinates.all.keys.map do |name|
         Location.new(name)
       end
-    end
-
-    def coordinates
-      @coordinates ||= YAML.load(File.read('location_coordinates.yml'))
     end
 
   end
@@ -30,27 +26,6 @@ class Location
       path = "#{S3.path_prefix}/#{s3_obj.key}"
       Food.new(path, self)
     end
-  end
-
-  def data_x
-    self.class.coordinates[name]['x']
-  end
-
-  def data_y
-    self.class.coordinates[name]['y']
-  end
-
-  def idx_for_food(food)
-    @foods.index(food)
-  end
-
-  def step_atts
-    {
-      'id'           => name,
-      'data-x'       => data_x,
-      'data-y'       => data_y,
-      'data-location' => dom_id,
-    }
   end
 
   def bucket_objects

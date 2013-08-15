@@ -2,18 +2,18 @@
   %img{src: 'public/images/map.png'}
 
 - locations.each do |location|
-  .step.location{location.step_atts}
+  .step.location{location_step_atts(location)}
     .pin
       %img{src: 'public/images/pin.png'}
     %h1.name= location.name
 
-  - location.foods.each do |food|
-    .step.food{food.step_atts}
+  - location.foods.each_with_index do |food, idx|
+    .step.food{food_step_atts(food, idx)}
       %img{src: food.src}
       .name= food.name
 
   -# End of location.
-  .step.end_location{location.step_atts.merge('id' => "end_#{location.name}")}
+  .step.end_location{location_step_atts(location).merge('id' => "end_#{location.name}")}
 
 #the_end.step{'data-scale' => @map_scale, 'data-z' => 30_000}
   %h1
