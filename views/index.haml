@@ -9,7 +9,7 @@
 
   - location.foods.each_with_index do |food, idx|
     .step.food{food_step_atts(food, idx)}
-      %img{src: food.src}
+      %img{src: food.path}
       .name= food.name
 
   -# End of location.

@@ -14,8 +14,4 @@ class Food
         .sub('.jpg', '')
   end
 
-  def src
-    path.sub(%r{^\./public/}, '')
-  end
-
 end
