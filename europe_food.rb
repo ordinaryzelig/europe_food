@@ -20,7 +20,7 @@ class EuropeFood < Sinatra::Base
     step_config
   end
 
-  get '/main.js' do
+  get '/public/main.js' do
     coffee :main
   end
 

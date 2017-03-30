@@ -12,6 +12,6 @@ task :compile do
   File.open('index.html', 'w+') { |f| f.write response.body }
 
   # main.js
-  response = get('/main.js')
+  response = get('/public/main.js')
   File.open('./public/main.js', 'w+') { |f| f.write response.body }
 end

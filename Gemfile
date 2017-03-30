@@ -7,8 +7,5 @@ gem 'coffee-script'
 gem 'execjs'
 gem 'rake'
 
-group :development do
-  gem 'shotgun'
-  gem 'awesome_print'
-  gem 'rack-test'
-end
+gem 'awesome_print'
+gem 'rack-test' # For easier compile rake task.
