@@ -3,7 +3,6 @@ Bundler.require :default, ENV.fetch('RACK_ENV', 'development')
 
 require 'yaml'
 
-require_relative 'lib/s3'
 require_relative 'lib/coordinates'
 require_relative 'lib/location'
 require_relative 'lib/food'
@@ -25,7 +24,7 @@ class EuropeFood < Sinatra::Base
     coffee :main
   end
 
-  get '*' do
+  get '/' do
     haml :index
   end
 

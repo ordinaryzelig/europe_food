@@ -88,7 +88,7 @@
       return $("nav .location").removeClass('current');
     };
     locationBackgroundImagePath = function(locationName) {
-      return "https://s3.amazonaws.com/europe-food/location_backrgrounds/medium/low/" + locationName + ".jpg";
+      return "public/images/location_backgrounds/" + locationName + ".jpg";
     };
     locationBackgroundImageProperty = function(locationName) {
       return "url(" + (locationBackgroundImagePath(locationName)) + ")";

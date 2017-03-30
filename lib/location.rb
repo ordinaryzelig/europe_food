@@ -1,7 +1,5 @@
 class Location
 
-  S3_DIR  = 'locations/medium/medium'
-
   attr_reader :name
   attr_reader :foods
 
@@ -20,16 +18,8 @@ class Location
   end
 
   def create_foods
-    @foods = bucket_objects.map do |s3_obj|
-      path = "#{S3.path_prefix}/#{s3_obj.key}"
+    @foods = Dir.glob("#{Food::IMAGE_PATH}/#{name}/*").map do |path|
       Food.new(path, self)
-    end
-  end
-
-  def bucket_objects
-    S3.bucket.objects.select do |s3_obj|
-      key_prefix = "#{S3_DIR}/#{name}/"
-      s3_obj.key =~ Regexp.new("#{key_prefix}.+")
     end
   end
 
