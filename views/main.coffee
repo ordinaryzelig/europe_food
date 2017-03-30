@@ -119,7 +119,7 @@ $ ->
     $("nav .location").removeClass('current')
 
   locationBackgroundImagePath = (locationName) ->
-    "https://s3.amazonaws.com/europe-food/location_backrgrounds/medium/low/#{locationName}.jpg"
+    "public/images/location_backgrounds/#{locationName}.jpg"
 
   locationBackgroundImageProperty = (locationName) ->
     "url(#{locationBackgroundImagePath(locationName)})"

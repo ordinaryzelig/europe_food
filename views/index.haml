@@ -1,19 +1,19 @@
 #map.step{'data-scale' => @map_scale, 'data-y' => -180, 'data-x' => 50}
-  %img{src: 'images/map.png'}
+  %img{src: 'public/images/map.png'}
 
 - locations.each do |location|
-  .step.location{location.step_atts}
+  .step.location{location_step_atts(location)}
     .pin
-      %img{src: 'images/pin.png'}
+      %img{src: 'public/images/pin.png'}
     %h1.name= location.name
 
-  - location.foods.each do |food|
-    .step.food{food.step_atts}
-      %img{src: food.src}
+  - location.foods.each_with_index do |food, idx|
+    .step.food{food_step_atts(food, idx)}
+      %img{src: food.path}
       .name= food.name
 
   -# End of location.
-  .step.end_location{location.step_atts.merge('id' => "end_#{location.name}")}
+  .step.end_location{location_step_atts(location).merge('id' => "end_#{location.name}")}
 
 #the_end.step{'data-scale' => @map_scale, 'data-z' => 30_000}
   %h1
@@ -21,5 +21,5 @@
     %br
     End
   %a#startOver{href: '#map'}
-    %img{src: 'images/spoon.jpg'}
+    %img{src: 'public/images/spoon.jpg'}
   #startOverHint Click the globe to start over.

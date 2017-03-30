@@ -1,14 +1,18 @@
 require 'bundler/setup'
 Bundler.require :default, ENV.fetch('RACK_ENV', 'development')
 
-require "sinatra/base"
+require 'yaml'
 
-require_relative 's3'
-require_relative 'underscored_dom_id'
-require_relative 'location'
-require_relative 'food'
+require_relative 'lib/coordinates'
+require_relative 'lib/location'
+require_relative 'lib/food'
 
 class EuropeFood < Sinatra::Base
+
+  SIZE               = 500
+  PADDING            = 50
+  HORIZONTAL_SPACING = SIZE + PADDING
+  DATA_Z             = -2_000
 
   set :public_folder, '.'
 
@@ -20,7 +24,7 @@ class EuropeFood < Sinatra::Base
     coffee :main
   end
 
-  get '*' do
+  get '/' do
     haml :index
   end
 
@@ -33,6 +37,36 @@ class EuropeFood < Sinatra::Base
 
     def locations
       @locations ||= Location.all.each(&:create_foods)
+    end
+
+    def location_step_atts(location)
+      {
+        'id'            => location.name,
+        'data-x'        => Coordinates.x(location.name),
+        'data-y'        => Coordinates.y(location.name),
+        'data-location' => dom_id(location),
+      }
+    end
+
+    def food_step_atts(food, idx)
+      loc_data_x = Coordinates.x(food.location.name)
+      loc_data_y = Coordinates.y(food.location.name)
+      {
+        'id'            => dom_id(food),
+        'data-x'        => loc_data_x + (idx * HORIZONTAL_SPACING),
+        'data-y'        => loc_data_y,
+        'data-z'        => DATA_Z,
+        'data-location' => dom_id(food.location),
+        'class'         => ["location-#{dom_id(food.location)}"],
+      }
+    end
+
+    def dom_id(obj)
+      prefix = ''
+      if obj.is_a?(Food)
+        prefix.replace("#{dom_id(obj.location)}-")
+      end
+      prefix + obj.name.gsub(/\W/, '_')
     end
 
   end
